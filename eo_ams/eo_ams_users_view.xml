@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+
+        <record id="eo_ams_asset_users_tree" model="ir.ui.view">
+            <field name="name">res.users.id.card.tree</field>
+            <field name="model">res.users</field>            
+            <field name="inherit_id" ref="base.view_users_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="field[@name='name']" position="after">
+                    <field name="site_id"/>
+                    <field name="location_id"/>
+                    <field name="department_id"/>
+                </xpath>
+                <xpath expr="field[@name='login']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="field[@name='lang']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="field[@name='login_date']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- User ID Card -->
+        <record id="eo_ams_asset_users_form" model="ir.ui.view">
+            <field name="name">res.users.id.card.form</field>
+            <field name="model">res.users</field>            
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="/form/sheet/notebook/page[@string='Access Rights']" position="after">
+                        <page string="Asset Settings">
+                            <group>
+                                <field name="site_id"/>
+                                <field name="location_id"/>
+                                <field name="department_id"/>
+                            </group>
+                        </page>
+                 </xpath>
+            </field>
+        </record>
+
+         <!-- User preferences form -->
+        <record id="eo_ams_asset_users_simple_form" model="ir.ui.view">
+            <field name="name">res.users.preferences.id.card.form</field>
+            <field name="model">res.users</field>            
+            <field name="inherit_id" ref="base.view_users_simple_form"/>    
+            <field name="arch" type="xml">
+                <data>
+                    <!-- <xpath expr="//field[@name='email']" position="after"> -->
+                    <xpath expr="//form/sheet/group" position="after">
+                        <group>
+                            <group col="6">
+                                <field name="site_id"/>
+                                <field name="location_id"/>
+                                <field name="department_id"/>
+                            </group>
+                        </group>
+                        <separator string="Assets" colspan="4"/>
+                        <field name="asset_ids"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_eo_ams_users">
+            <field name="name">Users</field>
+            <field name="res_model">res.users</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+       
+
+    </data>
+</openerp>

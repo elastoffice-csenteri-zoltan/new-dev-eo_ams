@@ -1,0 +1,51 @@
+<openerp>
+    <data>
+
+    	<!-- Asset Category -->
+        <record model="ir.ui.view" id="eo_ams_category_form_view">
+            <field name="name">eo.ams.category.form</field>
+            <field name="model">eo.ams.category</field>
+            <field name="arch" type="xml">
+                <form string="Asset Category" version="7.0">
+                    <group col="4">                    
+                        <field name="name" colspan="2"/>
+                        <field name="code" colspan="2"/>
+                        <separator string="Notes" colspan="4"/>
+                        <field name="note" colspan="4" nolabel="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="eo_ams_category_tree_view">
+            <field name="name">eo.ams.category.tree</field>
+            <field name="model">eo.ams.category</field>
+            <field name="arch" type="xml">
+                <tree string="Asset category">
+                    <field name="code"/>
+                    <field name="name"/>                    
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="eo_ams_category_search">
+            <field name="name">eo.ams.category.search</field>
+            <field name="model">eo.ams.category</field>
+            <field name="arch" type="xml">
+                <search string="Search Asset Category">
+                    <field name="name" filter_domain="['|', ('name','ilike',self), ('code','ilike',self)]" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_eo_ams_category">
+            <field name="name">Categories</field>
+            <field name="res_model">eo.ams.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="view_id" ref="view_eo_ams_category_tree"/>
+            <field name="search_view_id" ref="view_eo_ams_category_search"/> -->
+        </record>
+
+	</data>
+</openerp>

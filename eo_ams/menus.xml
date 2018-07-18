@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="0">
+
+       <!-- Top menu item -->
+        <menuitem 
+                id="menu_eo_ams_root"
+                name="eoAMS"
+                groups="base.group_user"
+                sequence="90"/>
+
+
+        <menuitem id="menu_eo_ams_main" parent="menu_eo_ams_root" name="Assets" sequence="1"/>
+        <menuitem 
+                id="menu_eo_ams_asset"
+                parent="menu_eo_ams_main"
+                action="action_eo_ams_asset"
+                sequence="1" />      
+        <!-- Configuration -->
+        <menuitem id="menu_eo_ams_configuration" name="Configuration" parent="menu_eo_ams_root" groups="base.group_user" sequence="50"/>  
+        <menuitem 
+                id="menu_eo_asset_category"
+                parent="menu_eo_ams_configuration"
+                action="action_eo_ams_category"
+                sequence="2" />      
+
+        <menuitem 
+                id="menu_eo_asset_site"
+                parent="menu_eo_ams_configuration"
+                action="action_eo_ams_site"
+                sequence="2" />      
+
+        <menuitem 
+                id="menu_eo_asset_location"
+                parent="menu_eo_ams_configuration"
+                action="action_eo_ams_location"
+                sequence="4" />      
+
+        <menuitem 
+                id="menu_eo_asset_department"
+                parent="menu_eo_ams_configuration"
+                action="action_eo_ams_department"
+                sequence="5" />   
+        <menuitem 
+                id="menu_eo_asset_users"
+                parent="menu_eo_ams_configuration"
+                action="action_eo_ams_users"
+                sequence="6" />                                   
+
+       
+
+    </data>
+</openerp>
